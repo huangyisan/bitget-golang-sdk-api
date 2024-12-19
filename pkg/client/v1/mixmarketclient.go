@@ -44,7 +44,7 @@ func (p *MixMarketClient) Candles(params map[string]string) (string, error) {
 }
 
 func (p *MixMarketClient) HistoryCandles(params map[string]string) (string, error) {
-	resp, err := p.BitgetRestClient.DoGet("/api/v1/mix/market/history-candles", params)
+	resp, err := p.BitgetRestClient.DoGet("/api/mix/v1/market/history-candles", params)
 	return resp, err
 }
 
