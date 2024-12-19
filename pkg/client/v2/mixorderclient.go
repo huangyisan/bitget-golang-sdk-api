@@ -133,3 +133,17 @@ func (p *MixOrderClient) FollowerQueryHistoryOrders(params map[string]string) (s
 	resp, err := p.BitgetRestClient.DoGet("/api/v2/copy/mix-follower/query-history-orders", params)
 	return resp, err
 }
+
+func (p *MixOrderClient) CustomGet(params map[string]string, uri string) (string, error) {
+	resp, err := p.BitgetRestClient.DoGet(uri, params)
+	return resp, err
+}
+
+func (p *MixOrderClient) CustomPost(params map[string]string, uri string) (string, error) {
+	postBody, jsonErr := internal.ToJson(params)
+	if jsonErr != nil {
+		return "", jsonErr
+	}
+	resp, err := p.BitgetRestClient.DoPost(uri, postBody)
+	return resp, err
+}

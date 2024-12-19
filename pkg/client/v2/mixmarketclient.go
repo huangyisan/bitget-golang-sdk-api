@@ -42,3 +42,8 @@ func (p *MixMarketClient) HistoryCandles(params map[string]string) (string, erro
 	resp, err := p.BitgetRestClient.DoGet("/api/v2/mix/market/history-candles", params)
 	return resp, err
 }
+
+func (p *MixMarketClient) CustomGet(params map[string]string, uri string) (string, error) {
+	resp, err := p.BitgetRestClient.DoGet(uri, params)
+	return resp, err
+}
