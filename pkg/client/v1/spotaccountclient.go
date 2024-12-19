@@ -34,3 +34,8 @@ func (p *SpotAccountClient) TransferRecords(params map[string]string) (string, e
 	resp, err := p.BitgetRestClient.DoGet("/api/spot/v1/account/transferRecords", params)
 	return resp, err
 }
+
+func (p *SpotAccountClient) CustomGet(params map[string]string, uri string) (string, error) {
+	resp, err := p.BitgetRestClient.DoGet(uri, params)
+	return resp, err
+}

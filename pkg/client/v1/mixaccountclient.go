@@ -70,3 +70,8 @@ func (p *MixAccountClient) AllPosition(params map[string]string) (string, error)
 	resp, err := p.BitgetRestClient.DoGet("/api/mix/v1/position/allPosition", params)
 	return resp, err
 }
+
+func (p *MixAccountClient) CustomGet(params map[string]string, uri string) (string, error) {
+	resp, err := p.BitgetRestClient.DoGet(uri, params)
+	return resp, err
+}

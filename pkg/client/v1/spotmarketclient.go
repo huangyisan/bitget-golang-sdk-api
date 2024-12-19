@@ -54,3 +54,8 @@ func (p *SpotMarketClient) Candles(params map[string]string) (string, error) {
 	resp, err := p.BitgetRestClient.DoGet("/api/spot/v1/market/candles", params)
 	return resp, err
 }
+
+func (p *SpotMarketClient) CustomGet(params map[string]string, uri string) (string, error) {
+	resp, err := p.BitgetRestClient.DoGet(uri, params)
+	return resp, err
+}

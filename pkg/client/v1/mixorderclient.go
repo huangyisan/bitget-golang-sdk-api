@@ -133,3 +133,8 @@ func (p *MixOrderClient) FollowerQueryHistoryOrders(params map[string]string) (s
 	resp, err := p.BitgetRestClient.DoGet("/api/mix/v1/trace/followerHistoryOrders", params)
 	return resp, err
 }
+
+func (p *MixOrderClient) CustomGet(params map[string]string, uri string) (string, error) {
+	resp, err := p.BitgetRestClient.DoGet(uri, params)
+	return resp, err
+}

@@ -130,3 +130,17 @@ func (p *SpotOrderClient) TraderOrderHistoryTrack(params map[string]string) (str
 	resp, err := p.BitgetRestClient.DoPost("/api/spot/v1/trace/order/orderHistoryList", postBody)
 	return resp, err
 }
+
+func (p *SpotOrderClient) CustomGet(params map[string]string, uri string) (string, error) {
+	resp, err := p.BitgetRestClient.DoGet(uri, params)
+	return resp, err
+}
+
+func (p *SpotOrderClient) CustomPost(params map[string]string, uri string) (string, error) {
+	postBody, jsonErr := internal.ToJson(params)
+	if jsonErr != nil {
+		return "", jsonErr
+	}
+	resp, err := p.BitgetRestClient.DoPost(uri, postBody)
+	return resp, err
+}
